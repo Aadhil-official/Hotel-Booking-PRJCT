@@ -1,0 +1,16 @@
+.MuiToolbar-root {
+    background-color: rgb(red, green, blue,0.3);
+    box-shadow: 1px 4px 6px 0px rgba(0,0,0, 0.3);
+    position: sticky;
+    margin-top: -10px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cont {
+    text-decoration: none;
+}
