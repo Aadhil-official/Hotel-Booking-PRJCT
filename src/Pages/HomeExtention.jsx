@@ -63,7 +63,7 @@ function HomeExtention() {
                                 className: 'SearchField'
                             }}
                         />
-
+                        <NoBreackSpace/>
                         <TextField
                             id="outlined-basic"
                             variant="outlined"
