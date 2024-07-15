@@ -49,6 +49,7 @@ function BrowseAllRoom() {
     return (
         <div>
             <Nav />
+            
             {currentRooms.map((room, index) => (
                 <Grid container key={index}>
                     <Grid item xs={3} >

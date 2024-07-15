@@ -66,7 +66,7 @@ function ReserveRoomForm() {
         component="form"
         sx={{
           '& .MuiTextField-root': { m: 1, marginTop: '20px' },
-          textAlign: 'center',
+          textAlign: 'center'
         }}
         noValidate
         autoComplete='off'

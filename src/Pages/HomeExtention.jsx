@@ -37,7 +37,7 @@ function HomeExtention() {
                     autoComplete='off'
                 >
 
-                    <Grid item xs={12}>
+                    <Grid item xs={12} textAlign='center'>
                         <TextField
                             id="outlined-basic"
                             variant="outlined"
@@ -63,7 +63,9 @@ function HomeExtention() {
                                 className: 'SearchField'
                             }}
                         />
-                        <NoBreackSpace/>
+                    {/* </Grid>
+
+                    <Grid item xs={6} textAlign='right'> */}
                         <TextField
                             id="outlined-basic"
                             variant="outlined"
