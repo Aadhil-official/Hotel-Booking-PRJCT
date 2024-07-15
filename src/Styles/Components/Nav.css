@@ -1,6 +1,6 @@
 .MuiToolbar-root {
-    background-color: rgb(red, green, blue,0.3);
-    box-shadow: 1px 4px 6px 0px rgba(0,0,0, 0.3);
+    background-color: rgb(red, green, blue, 0.3);
+    box-shadow: 1px 4px 6px 0px rgba(0, 0, 0, 0.3);
     position: sticky;
     margin-top: -10px;
 }
@@ -13,4 +13,40 @@
 
 .cont {
     text-decoration: none;
+}
+
+.cont1 {
+    text-decoration: none;
+}
+
+.cont,
+.cont1 {
+    text-decoration: none;
+}
+
+/* .cont1 {
+    display: none;
+} */
+
+.avtr {
+    display: none;
+    /* Hidden by default */
+}
+
+@media (max-width: 600px) {
+    .cont1 {
+        display: none; /* Hide cont1 on smaller screens */
+    }
+    .avtr {
+        display: flex; /* Show avtr on smaller screens */
+    }
+}
+
+@media (min-width: 601px) {
+    .cont1 {
+        display: flex; /* Show cont1 on larger screens */
+    }
+    .avtr {
+        display: none; /* Hide avtr on larger screens */
+    }
 }

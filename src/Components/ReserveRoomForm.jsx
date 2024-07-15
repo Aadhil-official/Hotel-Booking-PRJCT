@@ -3,6 +3,9 @@ import Box from '@mui/material/Box';
 import { Button, FormControl, FormHelperText, FormLabel, Grid, TextField, ThemeProvider, Typography, createTheme, responsiveFontSizes } from '@mui/material';
 import '../Styles/Components/ReserveRoomForm.css';
 import { dismiss, loading } from '../Tostify';
+import { z } from 'zod';
+import axios from 'axios';
+import { success } from '../Utils/Toastify';
 
 function ReserveRoomForm() {
 
@@ -17,8 +20,41 @@ function ReserveRoomForm() {
 
     const loadingId = loading("Reserving room....");
 
-    console.log(name);
-    dismiss(loadingId);
+    const validateform = z.object({
+      name: z.string().min(1, { message: "Enter the name!.." }),
+      email: z.string().email({ message: "Enter a valid email!.." }),
+      checkInDate: z.string().min(1, { message: "Enter the check-in-date!.." }),
+      checkOutDate: z.string().min(1, { message: "Enter the check-out-date!.." }),
+      adults: z.number().min(1, { message: "Enter the number of adults!.." }),
+      children: z.number().min(0, { message: "Enter the number of children!.." })
+    })
+
+    const bookdata = {
+      name: name,
+      email: email,
+      checkInDate: checkInDate,
+      checkOutDate: checkOutDate,
+      adults: adults,
+      children: children
+    }
+
+    const results = validateform.safeParse(bookdata);
+    if (results.success) {
+      axios.post("/roombook")
+        .then(() => {
+          dismiss(loadingId);
+          success("Room booked successfully..!");
+        })
+        .catch((error) => {
+          dismiss(loadingId);
+          console.log(error);
+        })
+    } else {
+      dismiss(loadingId);
+      results.error.errors.map((error) => {
+        return error.message;
+      })
+    }
   }
 
   let theme = createTheme();
@@ -56,8 +92,8 @@ function ReserveRoomForm() {
               <TextField
                 sx={{
                   width: {
-                    xs: '350px',
-                    sm: '400px',
+                    xs: '310px',
+                    sm: '390px',
                     md: '420px'
                   },
                   '& .MuiInputBase-input': {
@@ -81,8 +117,8 @@ function ReserveRoomForm() {
               <TextField
                 sx={{
                   width: {
-                    xs: '350px',
-                    sm: '400px',
+                    xs: '310px',
+                    sm: '390px',
                     md: '420px'
                   },
                   '& .MuiInputBase-input': {
@@ -115,8 +151,9 @@ function ReserveRoomForm() {
                 <TextField
                   sx={{
                     width: {
-                      xs: '175px',
-                      sm: '200px',
+                      xs: '145px',
+                      sm: '185px',
+                      md: '200px',
                     },
                     '& .MuiInputBase-input': {
                       height: '0.6em',
@@ -141,8 +178,9 @@ function ReserveRoomForm() {
                 <TextField
                   sx={{
                     width: {
-                      xs: '175px',
-                      sm: '200px',
+                      xs: '145px',
+                      sm: '185px',
+                      md: '200px',
                     },
                     '& .MuiInputBase-input': {
                       height: '0.6em',
@@ -175,8 +213,9 @@ function ReserveRoomForm() {
                 <TextField
                   sx={{
                     width: {
-                      xs: '175px',
-                      sm: '200px',
+                      xs: '145px',
+                      sm: '185px',
+                      md: '200px',
                     },
                     '& .MuiInputBase-input': {
                       height: '0.6em',
@@ -201,8 +240,9 @@ function ReserveRoomForm() {
                 <TextField
                   sx={{
                     width: {
-                      xs: '175px',
-                      sm: '200px',
+                      xs: '145px',
+                      sm: '185px',
+                      md: '200px',
                     },
                     '& .MuiInputBase-input': {
                       height: '0.6em',

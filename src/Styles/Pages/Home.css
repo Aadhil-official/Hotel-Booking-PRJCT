@@ -1,0 +1,43 @@
+.HotalNameHome {
+    font-size: 3rem;
+    top: 25%;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.HotalNameHome span{
+    padding: 0.2rem;
+    /* border-radius: 0.2rem; */
+    /* background-color: rgba(0, 0, 0, 0.7); */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.HotalNameHome .a {
+    color: #ff0000;
+}
+
+
+.HotalNameHome .b {
+    color: #2050A4;
+}
+
+
+.HotalNameHome .c {
+    color: #fbdd9a;
+}
+
+.homeimage {
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+    height: 100vh;
+    opacity: 0.75;
+}
+
+.overlay {
+    position: absolute;
+    top: -150px;
+    width: 60%;
+    height: 500%;
+    border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for better readability */
+}
