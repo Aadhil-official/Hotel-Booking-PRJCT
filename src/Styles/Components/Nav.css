@@ -3,15 +3,18 @@
     position: sticky;
     /* margin-top: -10px; */
     padding: 10px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     /* opacity: 0.8; */
 }
 
-.makeblur {
+/* .makeblur {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-}
+} */
 
 .nav {
+    margin-top: 5px;
     display: flex;
     justify-content: space-between;
     /* align-items: center; */
@@ -19,6 +22,7 @@
 
 .cont {
     text-decoration: none;
+    color: black;
 }
 
 /* 
