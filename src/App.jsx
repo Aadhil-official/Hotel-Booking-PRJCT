@@ -5,6 +5,8 @@ import { Route, Routes } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast';
 import HomeExtention from './Pages/HomeExtention';
 import BrowseAllRoom from './Pages/BrowseAllRoom';
+import AddRoom from './Pages/AddRoom';
+import SignIn from './Pages/SignIn';
 
 function App() {
 
@@ -20,6 +22,8 @@ function App() {
           </>
         } />
         <Route path='/BrowseRooms' element={<BrowseAllRoom />} />
+        <Route path='/addHotel' element={<AddRoom />} />
+        <Route path='/login' element={<SignIn />} />
       </Routes>
     </>
   );

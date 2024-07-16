@@ -19,17 +19,22 @@ function Nav() {
 
           {isLargerThan700px && <Grid container sx={{ marginBottom: '-27.5px' }}>
             <Grid item xs={12} sx={{ marginRight: "20px" }} textAlign='right'>
-              <Button variant='outlined' sx={{ marginRight: "5px", padding: "2px 6px" }}>
-                <Typography variant='body2'>
-                  Sign in
-                </Typography>
-              </Button>
+              <Link to='/login'>
+                <Button variant='outlined' sx={{ marginRight: "5px", padding: "2px 6px" }}>
+                  <Typography variant='body2'>
+                    Sign in
+                  </Typography>
+                </Button>
+              </Link>
 
-              <Button variant='outlined' sx={{ padding: "2px 6px" }}>
-                <Typography variant='body2'>
-                  Sign up
-                </Typography>
-              </Button>
+              <Link to='/addHotel'>
+                <Button variant='outlined' sx={{ padding: "2px 6px" }}>
+                  <Typography variant='body2'>
+                    Sign up
+                  </Typography>
+                </Button>
+              </Link>
+
             </Grid>
           </Grid>}
 
@@ -59,11 +64,14 @@ function Nav() {
 
         {!isLargerThan700px && <Grid container position='fixed' sx={{ marginBottom: '-70px', marginTop: '5px', zIndex: 100 }}>
           <Grid item xs={12} sx={{ marginRight: "20px" }} textAlign='right'>
-            <br /><br /><Button variant='contained' sx={{ marginRight: "5px", padding: "2px 6px" }}>
-              <Typography variant='body2' sx={{ fontSize: '0.75rem !important' }}>
-                Sign in
-              </Typography>
-            </Button>
+            <br /><br />
+            <Link to='/login'>
+              <Button variant='contained' sx={{ marginRight: "5px", padding: "2px 6px" }}>
+                <Typography variant='body2' sx={{ fontSize: '0.75rem !important' }}>
+                  Sign in
+                </Typography>
+              </Button>
+            </Link>
 
             <Link to='/addHotel'>
               <Button variant='contained' sx={{ padding: "2px 6px" }}>
