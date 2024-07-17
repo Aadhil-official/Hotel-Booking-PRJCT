@@ -1,4 +1,4 @@
-import { AppBar, Avatar, Button, Grid, Toolbar, Typography, createTheme, responsiveFontSizes, useMediaQuery } from '@mui/material'
+import { AppBar, Button, Grid, Typography, createTheme, responsiveFontSizes, useMediaQuery } from '@mui/material'
 import React from 'react'
 import '../Styles/Components/Nav.css'
 import { Link, NavLink } from 'react-router-dom'

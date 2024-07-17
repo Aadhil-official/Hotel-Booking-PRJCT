@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Nav from '../Components/Nav'
+import { Nav } from '../Components/Index'
 import { createTheme, Grid, Pagination, responsiveFontSizes, ThemeProvider, Typography } from '@mui/material'
 import axios from 'axios';
 

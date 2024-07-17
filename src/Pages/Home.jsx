@@ -1,6 +1,6 @@
 import React from 'react'
 import { Nav } from '../Components/Index'
-import { createTheme, Grid, responsiveFontSizes, TextField, ThemeProvider, Typography } from '@mui/material'
+import { createTheme, Grid, responsiveFontSizes, ThemeProvider, Typography } from '@mui/material'
 import Hotelmain from '../assets/Hotelmain.jpg'
 import '../Styles/Pages/Home.css'
 
