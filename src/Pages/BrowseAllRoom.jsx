@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Nav from '../Components/Nav'
-import { Grid, Pagination } from '@mui/material'
+import { createTheme, Grid, Pagination, responsiveFontSizes, ThemeProvider, Typography } from '@mui/material'
 import axios from 'axios';
 
 function BrowseAllRoom() {
@@ -46,17 +46,30 @@ function BrowseAllRoom() {
         setCurrentPage(value);
     };
 
+    let theme = createTheme();
+
     return (
         <div>
             <Nav />
             <br /><br /><br />
-            {currentRooms.map((room, index) => (
+            {currentRooms.length > 0 ? currentRooms.map((room, index) => (
                 <Grid container key={index}>
                     <Grid item xs={3} >
                         <img src={room.image} alt="room image" />
                     </Grid>
                 </Grid>
-            ))}
+            )) :
+                <Grid container textAlign='center' sx={{ marginTop: '15%', marginBottom: '15%' }}>
+                    <Grid item xs={12}>
+                        <ThemeProvider theme={createTheme(responsiveFontSizes(theme))}>
+                            <Typography variant='h3'>
+                                No Hotels Available
+                            </Typography>
+                        </ThemeProvider>
+                    </Grid>
+                </Grid>
+            }
+
             <Pagination
                 count={Math.ceil(filteredRooms.length / roomsPerPage)}
                 variant='outlined'

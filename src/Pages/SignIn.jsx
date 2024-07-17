@@ -1,33 +1,41 @@
-import { Box, TextField } from '@mui/material'
+import { Box, createTheme, Grid, responsiveFontSizes, TextField, ThemeProvider, Typography } from '@mui/material'
 import React from 'react'
 
 function SignIn() {
+
+    let theme = createTheme();
+    theme = responsiveFontSizes(theme);
+
     return (
         <div>
-            <Box
-                type='form'
-                sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    marginTop: '10%'
-                }}
-            >
-                <TextField
-                    type='text'
-                    label='User Name'
-                    variant='outlined'
-                    fullWidth
-                    required
-                />
+            <Grid container>
+                <Grid item xs={12}>
+                    <ThemeProvider theme={theme}>
+                        <Typography variant='h3' sx={{ fontWeight: 'bold',color:'' }}>
+                            Log in
+                        </Typography>
+                    </ThemeProvider>
+                </Grid>
 
-                <TextField
-                    type='password'
-                    label='Password'
-                    variant='outlined'
-                    fullWidth
-                    required
-                />
-            </Box>
+                <Grid item xs={12}>
+                    <ThemeProvider theme={theme}>
+                        <Typography variant='body2'>
+                            Enter username and password
+                        </Typography>
+                    </ThemeProvider>
+                </Grid>
+
+                <Grid item xs={12} sx={{ fontWeight: 'bold' }}>
+                    <ThemeProvider theme={theme}>
+                        <Typography variant='body1' color='red'>
+                            Forget password?
+                        </Typography>
+                        <Typography variant='body2'>
+                            Reset the password
+                        </Typography>
+                    </ThemeProvider>
+                </Grid>
+            </Grid>
         </div>
     )
 }
