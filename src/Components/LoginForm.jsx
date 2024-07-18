@@ -46,9 +46,19 @@ function LoginForm() {
             <Box
                 type='form'
                 sx={{
+                    '& .MuiTextField-root': {
+                        m: 1,
+                        width: '97.4%',
+                        '@media (max-width:700px)': {
+                            width: '94.5%'
+                        },
+                        '@media (min-width:700px) and (max-width:900px)': {
+                            width: '96%'
+                        }
+                    },
                     display: 'flex',
-                    flexDirection: 'column',
-                    marginTop: '10%'
+                    marginTop: '15px',
+                    flexDirection: 'column'
                 }}
             >
                 <TextField
@@ -71,7 +81,7 @@ function LoginForm() {
                     Login
                 </Button>
             </Box>
-        </div>
+        </div >
     )
 }
 

@@ -7,6 +7,7 @@ function AddHotelForm() {
             <TextField
                 type='text'
                 label='Enter the hotel name'
+                fullWidth
             />
         </div>
     )

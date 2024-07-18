@@ -5,6 +5,8 @@ import axios from 'axios';
 
 function BrowseAllRoom() {
 
+    // const {user} = useUser();
+
     const [rooms, setRooms] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [filterOption, setFilterOption] = useState('hotelName');
@@ -54,9 +56,16 @@ function BrowseAllRoom() {
             <br /><br /><br />
             {currentRooms.length > 0 ? currentRooms.map((room, index) => (
                 <Grid container key={index}>
-                    <Grid item xs={3} >
-                        <img src={room.image} alt="room image" />
-                    </Grid>
+                    {/* {user.username === 'ADMIN' &&
+                        <Grid item xs={3} onClick={handleEdit(room.id)}>
+                            <img src={room.image} alt="room image" />
+                        </Grid>} */}
+
+                    {/* {user.username !== 'ADMIN' && */}
+                        <Grid item xs={3} onClick={handleEdit(room.id)}>
+                            <img src={room.image} alt="room image" />
+                        </Grid>
+                        {/* } */}
                 </Grid>
             )) :
                 <Grid container textAlign='center' sx={{ marginTop: '15%', marginBottom: '15%' }}>
