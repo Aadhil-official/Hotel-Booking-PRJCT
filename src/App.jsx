@@ -7,6 +7,7 @@ import HomeExtention from './Pages/HomeExtention';
 import BrowseAllRoom from './Pages/BrowseAllRoom';
 import AddRoom from './Pages/AddRoom';
 import SignIn from './Pages/SignIn';
+import SignupHotel from './Pages/SignupHotel';
 
 function App() {
 
@@ -22,7 +23,7 @@ function App() {
           </>
         } />
         <Route path='/BrowseRooms' element={<BrowseAllRoom />} />
-        <Route path='/addHotel' element={<AddRoom />} />
+        <Route path='/addHotel' element={<SignupHotel />} />
         <Route path='/login' element={<SignIn />} />
       </Routes>
     </>
