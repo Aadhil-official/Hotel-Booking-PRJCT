@@ -24,7 +24,7 @@ function SignIn() {
                             Enter username and password
                         </Typography>
                     </ThemeProvider>
-                </Grid><br/><br/>
+                </Grid><br /><br />
 
                 <Grid container textAlign='center' justifyContent='center'>
                     <Grid item xs={6} className='box'>
@@ -32,18 +32,25 @@ function SignIn() {
                     </Grid>
                 </Grid>
 
-                <Grid item xs={12} sx={{ fontWeight: 'bold' }}>
-                <br/><br/><ThemeProvider theme={theme}>
+                <Grid item xs={6} sx={{ fontWeight: 'bold' }} textAlign='right'>
+                <br /><br />
+                    <ThemeProvider theme={theme}>
                         <Typography variant='body1' color='red'>
                             Forget password?
                         </Typography>
-                        <Typography variant='body2'>
+                    </ThemeProvider>
+                </Grid>
+
+                <Grid item xs={6} sx={{ fontWeight: 'bolder' }} textAlign='left'>
+                <br /><br />
+                    <ThemeProvider theme={theme}>
+                        <Typography variant='body1'>
                             Reset the password
                         </Typography>
                     </ThemeProvider>
                 </Grid>
             </Grid>
-        </div>
+        </div >
     )
 }
 
