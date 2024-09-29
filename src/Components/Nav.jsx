@@ -27,7 +27,7 @@ function Nav() {
                 </Button>
               </Link>
 
-              <Link to='/addHotel'>
+              <Link to='/role'>
                 <Button variant='outlined' sx={{ padding: "2px 6px" }}>
                   <Typography variant='body2'>
                     Sign up
@@ -73,7 +73,7 @@ function Nav() {
               </Button>
             </Link>
 
-            <Link to='/addHotel'>
+            <Link to='/role'>
               <Button variant='contained' sx={{ padding: "2px 6px" }}>
                 <Typography variant='body2' sx={{ fontSize: '0.75rem !important' }}>
                   Sign up

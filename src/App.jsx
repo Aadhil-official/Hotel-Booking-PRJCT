@@ -1,13 +1,9 @@
 import { useState } from 'react'
 import './App.css'
-import { BookRoom, Home } from './Pages/Index' // Change the import statement to match the correct casing
+import { HomeExtention, BrowseAllRoom, SignIn, SignupHotel, Role, BookRoom, Home } from './Pages/Index' // Change the import statement to match the correct casing
 import { Route, Routes } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast';
-import HomeExtention from './Pages/HomeExtention';
-import BrowseAllRoom from './Pages/BrowseAllRoom';
-import AddRoom from './Pages/AddRoom';
-import SignIn from './Pages/SignIn';
-import SignupHotel from './Pages/SignupHotel';
+// import AddRoom from './Pages/AddRoom';
 
 function App() {
 
@@ -25,6 +21,8 @@ function App() {
         <Route path='/BrowseRooms' element={<BrowseAllRoom />} />
         <Route path='/addHotel' element={<SignupHotel />} />
         <Route path='/login' element={<SignIn />} />
+        {/* <Route path='/addPersonal' element={<SignIn />} /> */}
+        <Route path='/role' element={<Role />} />
       </Routes>
     </>
   );

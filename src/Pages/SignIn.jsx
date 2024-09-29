@@ -1,6 +1,6 @@
 import { createTheme, Grid, responsiveFontSizes, ThemeProvider, Typography } from '@mui/material'
 import React from 'react'
-import { LoginForm } from '../Components/Index'
+import { BfrLoginNav, LoginForm } from '../Components/Index';
 
 function SignIn() {
 
@@ -9,6 +9,8 @@ function SignIn() {
 
     return (
         <div>
+            <BfrLoginNav />
+            <br /><br /><br />
             <Grid container textAlign='center' justifyContent='center'>
                 <Grid item xs={12}>
                     <ThemeProvider theme={theme}>
@@ -33,7 +35,7 @@ function SignIn() {
                 </Grid>
 
                 <Grid item xs={6} sx={{ fontWeight: 'bold' }} textAlign='right'>
-                <br /><br />
+                    <br /><br />
                     <ThemeProvider theme={theme}>
                         <Typography variant='body1' color='red'>
                             Forget password?
@@ -42,7 +44,7 @@ function SignIn() {
                 </Grid>
 
                 <Grid item xs={6} sx={{ fontWeight: 'bolder' }} textAlign='left'>
-                <br /><br />
+                    <br /><br />
                     <ThemeProvider theme={theme}>
                         <Typography variant='body1'>
                             Reset the password

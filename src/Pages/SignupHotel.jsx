@@ -1,7 +1,7 @@
 import { createTheme, Grid, responsiveFontSizes, ThemeProvider, Typography } from '@mui/material'
 import React from 'react'
-import AddHotelForm from '../Components/AddHotelForm';
 import { Link } from 'react-router-dom';
+import { AddHotelForm } from '../Components/Index';
 import '../Styles/Pages/SignUp.css'
 
 function SignupHotel() {

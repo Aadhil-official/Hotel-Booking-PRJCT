@@ -4,7 +4,7 @@ import { Grid, TextField } from '@mui/material';
 
 function Form() {
 
-    
+    // cloudinary is for image transformation using cdn to back to client side
 
   return (
     <div>
