@@ -1,11 +1,31 @@
+@font-face {
+    font-family: 'Nico Moji';
+    src: url('../../assets/Fonts/NicoMoji-Regular.ttf') format('truetype');
+    /* Adjust path if needed */
+    font-weight: normal;
+    font-style: normal;
+}
+
 .MuiAppBar-root {
     box-shadow: 1px 4px 6px 0px rgba(0, 0, 0, 0.154);
     position: sticky;
     /* margin-top: -10px; */
     padding: 10px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(10px);
     /* opacity: 0.8; */
+}
+
+.inlogocamp {
+    font-family: 'Nico Moji', sans-serif;
+}
+
+
+.logoComp {
+    margin-left: 20px;
+    margin-top: 5px;
+    color: #B4B4C4;
+    position: absolute;
 }
 
 /* .makeblur {
@@ -14,7 +34,17 @@
 } */
 
 .nav {
-    margin-top: 5px;
+    margin-left: -150px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+
+.nav1 {
+    /* margin-left: -150px; */
+    /* margin-bottom: 5px; */
+    /* margin-top: ; */
     display: flex;
     justify-content: space-between;
     /* align-items: center; */
@@ -22,7 +52,8 @@
 
 .cont {
     text-decoration: none;
-    color: black;
+    color: #B4EBD3;
+    /* margin: 20px; */
 }
 
 /* 
