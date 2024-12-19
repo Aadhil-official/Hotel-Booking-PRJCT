@@ -4,101 +4,14 @@
     text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.4);
 }
 
-.HotalNameHome span {
-    padding: 0.2rem;
-    /* border-radius: 0.2rem; */
-    /* background-color: rgba(0, 0, 0, 0.7); */
+.box-shadow-custom {
+    box-shadow: 4px 8px 10px 1px rgba(123, 188, 176, 0.5);
+}
+
+.shadow-white-opaque {
     text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.4);
-}
-
-.HotalNameHome .a {
-    color: #ff0000;
-}
-
-
-.HotalNameHome .b {
-    color: #2050A4;
-}
-
-
-.HotalNameHome .c {
-    color: #fbdd9a;
-}
-
-.wrongposh {
-    margin-top: -8px;
-    position: relative;
-    /* display: inline-block; */
-    /* margin-left: -8px; */
-}
-
-.divoverlap {
-    width: 100%;
-    object-fit: cover;
-    height: 88vh;
-    background-color: #482e21;
-    /* position: relative; */
-    opacity: 0.4;
-    /* margin-right: -8px; */
-    /* top: 0; */
-}
-
-.homeimage {
-    width: 100%;
-    object-fit: cover;
-    position: absolute;
-    /* top: 0; */
-    height: 88vh;
-    /* opacity: 0.75; */
-}
-
-.overlay {
-    position: absolute;
-    top: -150px;
-    width: 60%;
-    height: 500%;
-    border-radius: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Dark overlay for better readability */
-}
-
-.backside {
-    margin-top: 180px;
-    /* width: 80%; */
-    border-radius: 15px;
-    padding: 15px 0px 15px 0px;
-    background-color: #ffffff;
-    box-shadow: 4px 8px 10px 1px rgba(123, 188, 176, 0.5);
-}
-
-.backsides {
-    margin-top: 140px;
-    border-radius: 10px;
-    /* width: 80%; */
-    /* background-color: #74686856; */
-    padding: 15px;
-    background-color: #ffffff;
-    box-shadow: 4px 8px 10px 1px rgba(123, 188, 176, 0.5);
-}
-
-.backsidess {
-    margin-top: 177px;
-    border-radius: 10px;
-    width: 65%;
-    /* width: 80%; */
-    /* background-color: #74686856; */
-    padding: 15px;
-    background-color: #ffffff;
-    box-shadow: 4px 8px 10px 1px rgba(123, 188, 176, 0.5);
 }
 
 .SearchField .MuiOutlinedInput-root {
     border-radius: 30px;
-}
-
-.SearchFieldd .MuiOutlinedInput-root {
-    border-radius: 30px;
-    /* justify-content: center;
-    text-align: center; */
-    /* margin-left: -50px; */
 }

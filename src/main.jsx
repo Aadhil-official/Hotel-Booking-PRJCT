@@ -4,6 +4,7 @@ import App from './App.jsx';
 import { BrowserRouter } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { UserProvider } from './context/UserContext.jsx';
+import './index.css';
 
 const clientId = '798403706815-ntmrgjj6j34mciop7bjsq5k0q6j795tp.apps.googleusercontent.com';
 
