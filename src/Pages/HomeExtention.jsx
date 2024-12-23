@@ -1,4 +1,4 @@
-import { Box, Grid, TextField, Typography, useMediaQuery } from '@mui/material'
+import { Box, Button, Grid, TextField, Typography, useMediaQuery } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import '../Styles/Pages/HomeExten.css'
 import homefront from '../assets/homefront.png'
@@ -7,6 +7,7 @@ import Hotelmain from '../assets/Hotelmain.jpg'
 function HomeExtention() {
     const [enddate, setEnddate] = useState("");
     const [startdate, setStartdate] = useState("");
+    const [isExpanded, setIsExpanded] = useState(false);
 
     useEffect(() => {
         const currentDate = new Date().toISOString().split('T')[0];
@@ -14,9 +15,10 @@ function HomeExtention() {
         setEnddate(currentDate);
     }, [])
 
-    function filterhotel() {
-        console.log('filterhotel');
-    }
+
+    const toggleExpanded = () => {
+        setIsExpanded((prev) => !prev);
+    };
 
     const isLargerThan700px = useMediaQuery('(min-width:1100px)');
     const isLargerThan500px = useMediaQuery('(min-width:800px)');
@@ -43,12 +45,12 @@ function HomeExtention() {
                     </Typography><br />
                 </Grid>
                 <Grid item xs={0.5}></Grid>
-                <div className="relative w-full h-72">
+                <div className="relative w-full" style={{ height: !isExpanded ? '400px' : '438px' }}>
 
-                    <img src={homefront} className="absolute inset-0 w-full h-72 object-cover" alt="image" />
-                    <div className="absolute inset-0 w-full h-72 bg-[#482E21] opacity-60"></div>
+                    <img src={homefront} className="absolute inset-0 w-full object-cover" style={{ height: !isExpanded ? '400px' : '438px' }} alt="image" />
+                    <div className="absolute inset-0 w-full bg-[#482E21] opacity-60" style={{ height: !isExpanded ? '400px' : '438px' }}></div>
 
-                    <div className="-mt-14">
+                    {isLargerThan700px && <div className="-mt-14">
                         <img src={Hotelmain} alt='HotelICon' className='absolute z-10 w-[400px] h-[400px]'
                             style={{
                                 // clipPath: 'path("M230,150 Q280,50,370,170 Q450,300,320,360 Q200,400,150,300 Q100,200,230,150 Z")',
@@ -67,17 +69,102 @@ function HomeExtention() {
                                 clipPath: 'path("M230,150 Q280,50,350,170 Q450,300,320,360 Q200,400,150,300 Q90,150,230,150 Z")',
                             }}
                         ></div>
-                    </div>
-                    <Typography variant='h6' className='text-[#B4EBD3] font-bold mt-10'>
+                    </div>}
+                    {/* <Typography variant='h6' className='text-[#B4EBD3] font-bold top-11'>
                         Wild Coast Tented Lodge
-                    </Typography>
+                    </Typography> */}
 
                 </div>
-                {/* <Grid item xs={12} textAlign='right'>
-                    <Typography variant='h6' className='text-[#B4EBD3] font-bold absolute'>
-                        Wild Coast Tented Lodge
-                    </Typography>
-                </Grid> */}
+                {/* <Grid item xs={12} sm={12} md={6} lg={6} xl={6}></Grid> */}
+
+                {isLargerThan700px &&
+                    <>
+                        <Grid item xs={12} sm={12} position='relative' className={`left-[55%] ${isExpanded ? ' -top-72' : ' -top-64'}`}>
+                            <Typography variant='h6' className='text-[#B4EBD3] font-bold'>
+                                Wild Coast Tented Lodge
+                            </Typography><div className='h-1'/>
+                        </Grid>
+                        <Grid item xs={12} sm={12} position='relative' className={`left-[55%] ${isExpanded ? ' -top-72' : ' -top-64'}`}>
+                            <Grid xs={4.5}>
+                                <Typography variant='body2' className='text-[#B4EBD3] font-bold'>
+                                    hi
+                                    {/* about me about me about me about me about me about me about me about me about me about me about me about me
+                                    about me about me about me about me about me about me about me about me about me about me */}
+                                </Typography><div className='h-1'/>
+                            </Grid>
+                        </Grid>
+                        <Grid item xs={12} sm={12} position='relative' className={`left-[55%] ${isExpanded ? ' -top-72' : ' -top-64'}`}>
+                            <Grid xs={4.5} className='flex-row'>
+                                <Typography variant='body2' className={`text-[#B4EBD3] font-bold ${isExpanded ? 'h-auto' : 'h-[70px]'}`} style={{
+                                    // height: isExpanded ? '' : '50px', // Set fixed height or auto
+                                    overflow: isExpanded ? 'visible' : 'hidden', // Hide overflow if not expanded
+                                    textOverflow: 'ellipsis', // Add ellipsis for truncated text
+                                    display: '-webkit-box',
+                                    WebkitLineClamp: isExpanded ? 'unset' : 3, // Show limited lines when not expanded
+                                    WebkitBoxOrient: 'vertical',
+                                }}
+                                >
+                                    about me about me about me about me about me about me about me about me about me about me about me about me
+                                    about me about me about me about me about me about me about me about me about me about me
+                                </Typography>
+                                <button
+                                    className='text-[#B4EBD3] mt-2'
+                                    onClick={toggleExpanded}
+                                >
+                                    <Typography variant='body2'>
+                                        {isExpanded ? 'See Less' : 'See More'}
+                                    </Typography>
+                                </button>
+                            </Grid>
+                        </Grid>
+                        <Grid>
+                            <Button>hi</Button>
+                        </Grid>
+                    </>
+                }
+                {!isLargerThan700px &&
+                    <>
+                        <Grid item xs={12} sm={12} textAlign='center' position='relative' className={`${isExpanded ? ' -top-72' : ' -top-64'}`}>
+                            <Typography variant='h6' className='text-[#B4EBD3] font-bold'>
+                                Wild Coast Tented Lodge
+                            </Typography><div className='h-1'/>
+                        </Grid>
+                        <Grid item xs={12} sm={12} position='relative' className={`${isExpanded ? ' -top-72' : ' -top-64'}`}>
+                            <Grid xs={4.5} className='ml-auto mr-auto'>
+                                <Typography variant='body2' className='text-[#B4EBD3] font-bold'>
+                                    hi
+                                    {/* about me about me about me about me about me about me about me about me about me about me about me about me
+                                    about me about me about me about me about me about me about me about me about me about me */}
+                                </Typography><div className='h-1'/>
+                            </Grid>
+                        </Grid>
+
+                        <Grid item xs={12} sm={12} position='relative' className={`${isExpanded ? ' -top-72' : ' -top-64'}`}>
+                            <Grid xs={4.5} className='ml-auto mr-auto'>
+                                <Typography variant='body2' className={`text-[#B4EBD3] font-bold ${isExpanded ? 'h-auto' : 'h-[70px]'}`} style={{
+                                    // height: isExpanded ? 'auto' : '50px', // Set fixed height or auto
+                                    overflow: isExpanded ? 'visible' : 'hidden', // Hide overflow if not expanded
+                                    textOverflow: 'ellipsis', // Add ellipsis for truncated text
+                                    display: '-webkit-box',
+                                    WebkitLineClamp: isExpanded ? 'unset' : 3, // Show limited lines when not expanded
+                                    WebkitBoxOrient: 'vertical',
+                                }}
+                                >
+                                    about me about me about me about me about me about me about me about me about me about me about me about me
+                                    about me about me about me about me about me about me about me about me about me about me
+                                </Typography>
+                                <button
+                                    className='text-[#B4EBD3] mt-2'
+                                    onClick={toggleExpanded}
+                                >
+                                    <Typography variant='body2'>
+                                        {isExpanded ? 'See Less' : 'See More'}
+                                    </Typography>
+                                </button>
+                            </Grid>
+                        </Grid>
+                    </>
+                }
                 <Box
                     component="form"
                     sx={{
