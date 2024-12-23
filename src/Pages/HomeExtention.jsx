@@ -48,34 +48,36 @@ function HomeExtention() {
                     <img src={homefront} className="absolute inset-0 w-full h-72 object-cover" alt="image" />
                     <div className="absolute inset-0 w-full h-72 bg-[#482E21] opacity-60"></div>
 
-                    <div className="relative w-full h-[400px] flex items-center justify-center">
-                        {/* <img
-                            src={Hotelmain}
-                            alt="Top Image"
-                            className="relative z-30 w-[300px] h-[300px] object-cover rounded-full"
-                        /> */}
-
-                        {/* <div
-                            className="absolute z-20 w-[350px] h-[350px] bg-[#A1D4C9]"
-                            style={{ clipPath: 'circle(50% at 50% 50%)' }}
-                        ></div> */}
-
-                        {/* <div
-                            className="absolute z-10 w-[400px] h-[400px] bg-[#54ACAC] opacity-70"
+                    <div className="-mt-14">
+                        <img src={Hotelmain} alt='HotelICon' className='absolute z-10 w-[400px] h-[400px]'
                             style={{
-                                clipPath: 'path("M232.5,150 Q300,0,367.5,150 Q435,300,300,367.5 Q165,435,232.5,300 Q300,165,232.5,150 Z")'
+                                // clipPath: 'path("M230,150 Q280,50,370,170 Q450,300,320,360 Q200,400,150,300 Q100,200,230,150 Z")',
+                                clipPath: 'path("M230,150 Q280,50,350,170 Q450,300,320,360 Q200,400,150,300 Q90,150,230,150 Z")',
                             }}
-                        ></div> */}
+                        />
                         <div
-                        className='w-[400px] h-[400px] bg-[#B4EBD3] left-1'
+                            className='w-[400px] h-[400px] bg-[#B4EBD3] -rotate-[40deg] absolute  mt-14 -ml-6'
                             style={{
-                                clipPath: 'path("M230,150 Q280,50,370,170 Q450,300,320,360 Q200,400,150,300 Q100,200,230,150 Z")',
+                                clipPath: 'path("M230,150 Q280,50,350,170 Q450,300,320,360 Q200,400,150,300 Q90,150,230,150 Z")',
                             }}
                         ></div>
-
+                        <div
+                            className='w-[400px] h-[400px] bg-[#54ACAC] rotate-[20deg] absolute ml-1 -mt-2'
+                            style={{
+                                clipPath: 'path("M230,150 Q280,50,350,170 Q450,300,320,360 Q200,400,150,300 Q90,150,230,150 Z")',
+                            }}
+                        ></div>
                     </div>
+                    <Typography variant='h6' className='text-[#B4EBD3] font-bold mt-10'>
+                        Wild Coast Tented Lodge
+                    </Typography>
 
                 </div>
+                {/* <Grid item xs={12} textAlign='right'>
+                    <Typography variant='h6' className='text-[#B4EBD3] font-bold absolute'>
+                        Wild Coast Tented Lodge
+                    </Typography>
+                </Grid> */}
                 <Box
                     component="form"
                     sx={{
