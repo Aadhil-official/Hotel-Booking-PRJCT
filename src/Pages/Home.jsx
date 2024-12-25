@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Nav } from '../Components/Index'
-import { Box, Button, createTheme, Grid, responsiveFontSizes, TextField, ThemeProvider, Typography, useMediaQuery } from '@mui/material'
+import { Box, Button, createTheme, Grid, InputAdornment, responsiveFontSizes, TextField, ThemeProvider, Typography, useMediaQuery } from '@mui/material'
 import Hotelmain from '../assets/pexels-pixabay-258154.jpg'
 import '../Styles/Pages/Home.css'
+import userIcon from '../assets/userIcon.png'
+import locationIcon from '../assets/locationIcon.png'
 
 function Home() {
   const [enddate, setEnddate] = useState("");
@@ -86,9 +88,20 @@ function Home() {
                     <TextField
                       fullWidth
                       variant="outlined"
-                      type='text'
-                      label='Guests'
+                      type="text"
+                      label="Guests"
                       className="SearchField w-[250px]"
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <img
+                              src={userIcon}
+                              alt="Icon"
+                              style={{ width: 28, height: 18 }}
+                            />
+                          </InputAdornment>
+                        ),
+                      }}
                     />
                   </Grid>
                   <Grid item xs={3}>
@@ -96,6 +109,17 @@ function Home() {
                       id="search-hotel"
                       variant="outlined"
                       type="text"
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <img
+                              src={locationIcon}
+                              alt="Icon"
+                              style={{ width: 18, height: 20 }}
+                            />
+                          </InputAdornment>
+                        ),
+                      }}
                       fullWidth
                       label="Location.."
                       className="SearchField w-[250px]"
@@ -104,7 +128,7 @@ function Home() {
 
                   <Grid item className='mt-auto mb-auto'>
                     <Button variant='contained' size='large'
-                      className="!bg-[#54ACAC] !rounded-[20px] !-mt-[16px] !ml-[15px] !h-[60px] !w-[150px] hover:!bg-[#459B9B]"
+                      className="!bg-[#54ACAC] !rounded-[40px] !-mt-[16px] !ml-[15px] !h-[60px] !w-[150px] !normal-case"
                     >
                       <Typography variant='body2' className='mt-auto mb-auto text-[#482E21]'>
                         Search
@@ -143,7 +167,7 @@ function Home() {
               </Grid>
             </ThemeProvider>
 
-{/* 
+            {/* 
 margin-top: 140px;
     border-radius: 10px;
     /* width: 80%; */
@@ -198,8 +222,8 @@ margin-top: 140px;
                     />
                   </Grid>
 
-                  <Button variant='contained' size='large' 
-                  className='!bg-[#54ACAC] !rounded-[20px] !-mt-[5px] h-[60px] w-[250px] hover:!bg-[#459B9B]'>
+                  <Button variant='contained' size='large'
+                    className='!bg-[#54ACAC] !rounded-[20px] !-mt-[5px] h-[60px] w-[250px] hover:!bg-[#459B9B]'>
                     <Typography variant='body2' className='text-[#482E21]'>
                       Search
                     </Typography>
@@ -275,12 +299,12 @@ margin-top: 140px;
                     />
                     {/* <Grid item xs={3}> */}
                     <Button variant='contained' size='large'
-                    className='!bg-[#54ACAC] !rounded-[20px] !-mt-[10px] h-[60px] w-[250px] hover:!bg-[#459B9B]'>
+                      className='!bg-[#54ACAC] !rounded-[20px] !-mt-[10px] h-[60px] w-[250px] hover:!bg-[#459B9B]'>
                       <Typography variant='body2' className='text-[#482E21]'>
                         Search
                       </Typography>
                     </Button>
-                    
+
                   </Grid>
                 </Box>
               </Grid>
