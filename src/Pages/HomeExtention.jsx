@@ -1,5 +1,5 @@
 import { Box, Button, Grid, TextField, Typography, useMediaQuery } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import '../Styles/Pages/HomeExten.css'
 import homefront from '../assets/homefront.png'
 import Hotelmain from '../assets/Hotelmain.jpg'
@@ -11,6 +11,12 @@ function HomeExtention() {
     const [isExpanded, setIsExpanded] = useState(false);
     const [address] = useState("77 Galle Rd, Colombo");
     const [phonenum] = useState("+94750213273");
+    const contentRef = useRef(null);
+    const [shouldShowButton, setShouldShowButton] = useState(false);
+
+
+    const isLargerThan700px = useMediaQuery('(min-width:1100px)');
+    const isLargerThan500px = useMediaQuery('(min-width:800px)');
 
     useEffect(() => {
         const currentDate = new Date().toISOString().split('T')[0];
@@ -19,12 +25,35 @@ function HomeExtention() {
     }, [])
 
 
+    useLayoutEffect(() => {
+
+        const handleResize = () => {
+            setIsExpanded(false);
+            if (contentRef.current) {
+                const { scrollHeight, offsetHeight } = contentRef.current;
+
+                console.log("shit :.-------------------------------........", scrollHeight, offsetHeight);
+                setShouldShowButton(scrollHeight > offsetHeight);
+            }
+        };
+
+        // Check the content height on mount
+        handleResize();
+
+        // Listen to window resize events
+        window.addEventListener("resize", handleResize);
+
+        // Clean up event listener
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+
+    }, []); // Only run once on mount
+
+
     const toggleExpanded = () => {
         setIsExpanded((prev) => !prev);
     };
-
-    const isLargerThan700px = useMediaQuery('(min-width:1100px)');
-    const isLargerThan500px = useMediaQuery('(min-width:800px)');
 
     return (
         <div>
@@ -106,23 +135,30 @@ function HomeExtention() {
                         </Grid>
                         <Grid item xs={12} sm={12} position='relative' className={`left-[55%] ${isExpanded ? ' -top-72' : ' -top-64'}`}>
                             <Grid xs={4.5} className='flex-row'>
-                                <Typography variant='body2' className={`text-[#ffffff] font-bold ${isExpanded ? 'h-auto overflow-visible line-clamp-none' : 'h-[70px] overflow-hidden line-clamp-3'} text-ellipsis`}
+                                <Typography variant='body2' className={`text-[#ffffff] font-bold 
+                                ${isExpanded ? 'h-auto overflow-visible line-clamp-none' : 'h-[75px] overflow-hidden line-clamp-3'}
+                                 text-ellipsis`}
                                     style={{
                                         display: '-webkit-box',
                                         WebkitBoxOrient: 'vertical',
                                     }}
+                                    ref={contentRef}
                                 >
+                                    {/* <div className='w-full'> */}
                                     about me about me about me about me about me about me about me about me about me about me about me about me
                                     about me about me about me about me about me about me about me about me about me about me
+                                    {/* </div> */}
                                 </Typography>
-                                <button
-                                    className='text-[#ffffff] mt-2 '
-                                    onClick={toggleExpanded}
-                                >
-                                    <Typography variant='body2'>
-                                        {isExpanded ? 'See Less' : 'See More'}
-                                    </Typography>
-                                </button>
+                                {shouldShowButton && (
+                                    <button
+                                        className={`text-[#ffffff] mt-2`}
+                                        onClick={toggleExpanded}
+                                    >
+                                        <Typography variant='body2'>
+                                            {isExpanded ? 'See Less' : 'See More'}
+                                        </Typography>
+                                    </button>
+                                )}
                             </Grid>
                         </Grid>
                         <Button variant='contained' className={`!rounded-[40px] !bg-[#54ACAC] h-[50px] ${isExpanded ? '-top-64' : '-top-60'} left-32 !text-[16px] !text-[#482E21] !normal-case w-[200px]`}>
@@ -133,96 +169,95 @@ function HomeExtention() {
 
                 {!isLargerThan700px &&
                     <>
-                        <Grid container>
-                            {/* Title */}
-                            <Grid item xs={12} sm={12} textAlign="center" position="relative" className={`${isExpanded ? '-top-72' : '-top-64'}`}>
-                                <Typography
-                                    variant="h6"
-                                    className="[text-shadow:0px_0px_10px_#ffffff] text-[#B4EBD3] font-bold"
-                                >
-                                    Wild Coast Tented Lodge
-                                </Typography>
-                                <div className="h-1" />
-                            </Grid>
+                        <Grid item xs={12} sm={12} textAlign="center" position="relative" className={`${isExpanded ? '-top-72' : '-top-64'}`}>
+                            <Typography
+                                variant="h6"
+                                className="[text-shadow:0px_0px_10px_#ffffff] text-[#B4EBD3] font-bold"
+                            >
+                                Wild Coast Tented Lodge
+                            </Typography>
+                            <div className="h-1" />
+                        </Grid>
 
-                            {/* Address and Phone */}
-                            <Grid item xs={12} sm={12} className={`${isExpanded ? '-top-72' : '-top-64'} relative`}>
-                                <Grid container xs={8} className="mx-auto items-center">
+                        {/* Address and Phone */}
+                        <Grid item xs={12} sm={12} container justifyContent='center' className={`${isExpanded ? '-top-72' : '-top-64'} relative`}>
+                            {/* <Grid container xs={8} className='mr-auto ml-auto'> */}
+                            <Typography
+                                variant="body2"
+                                className="text-white font-bold flex items-center space-x-2"
+                            >
+                                <img src={locationwicon} alt="location" width="18" height="10" />
+                                <span>{address}</span>
+                                <div className="w-[2px] h-4 bg-[#B4EBD3] mx-1"></div>
+                                <span>{phonenum}</span>
+                            </Typography>
+                            <div className="h-7"></div>
+                            {/* </Grid> */}
+                        </Grid>
+
+                        {/* About Me Section */}
+                        <Grid item xs={12} sm={12} className={`${isExpanded ? '-top-72' : '-top-64'} relative`}>
+                            <Grid container xs={8} className="mx-auto">
+                                <Grid item className='!-mr-5'>
                                     <Typography
                                         variant="body2"
-                                        className="text-white font-bold flex items-center justify-center space-x-2"
-                                    >
-                                        <img src={locationwicon} alt="location" width="18" height="10" />
-                                        <span>{address}</span>
-                                        <div className="w-[2px] h-4 bg-[#B4EBD3] mx-1"></div>
-                                        <span>{phonenum}</span>
-                                    </Typography>
-                                    <div className="h-1"></div>
-                                </Grid>
-                            </Grid>
-
-                            {/* About Me Section */}
-                            <Grid item xs={12} sm={12} className={`${isExpanded ? '-top-72' : '-top-64'} relative`}>
-                                <Grid container xs={8} className="mx-auto text-center">
-                                    <Typography
-                                        variant="body2"
-                                        className={`text-white font-bold ${isExpanded
-                                                ? 'h-auto overflow-visible line-clamp-none'
-                                                : 'h-[70px] overflow-hidden line-clamp-3 text-ellipsis'
-                                            }`}
+                                        className={`text-[#ffffff] font-bold 
+                                        ${isExpanded ? 'h-auto overflow-visible line-clamp-none' : 'h-[75px] overflow-hidden line-clamp-3'}
+                                         text-ellipsis`}
                                         style={{
                                             display: '-webkit-box',
                                             WebkitBoxOrient: 'vertical',
-                                            WebkitLineClamp: 3,
                                         }}
-                                        ref={(el) => {
-                                            if (el) {
-                                                // Hide button if text fits in 3 lines
-                                                const shouldHideButton = el.scrollHeight <= el.offsetHeight;
-                                                document.getElementById('see-more-button').style.display = shouldHideButton ? 'none' : 'block';
-                                            }
-                                        }}
+                                        ref={contentRef}
                                     >
-                                        about me about me about me about me about me about me about me about me about me about me
-                                        about me about me about me about me about me about me about me about me about me about me
+                                        <div className=''>
+                                            hi hi hi hi hi hi hi hi hhi hi hi h ih ih ih ih i hi hi hi
+                                            hi hi hi hi hih ih ih ih ih ih i hi hi hi hi hi hi h ih i ih hi  i ii i i i ii i  i ii i  i 
+                                        </div>
                                     </Typography>
-                                    <div
-                                        id="see-more-button"
-                                        className={`text-[#B4EBD3] mt-2 ${isExpanded ? '' : 'absolute bottom-0 right-0'}`}
-                                        style={{ textAlign: 'right' }}
-                                    >
-                                        <button onClick={toggleExpanded}>
+                                    {shouldShowButton && (
+                                        // <Grid container textAlign='left' justifyContent='left'>
+                                        //     <Grid item xs={12}>
+                                        <button
+                                            className={`text-[#ffffff] mt-2`}
+                                            onClick={toggleExpanded}>
                                             <Typography variant="body2">
                                                 {isExpanded ? 'See Less' : 'See More'}
                                             </Typography>
                                         </button>
-                                    </div>
+                                        //     </Grid>
+                                        // </Grid>
+                                    )}
                                 </Grid>
                             </Grid>
-
-                            {/* Book Now Button */}
-                            <Button
-                                variant="contained"
-                                className={`!rounded-[40px] !bg-[#54ACAC] h-[50px] ${isExpanded ? '-top-64' : '-top-60'
-                                    } !text-[16px] !text-[#482E21] !normal-case w-[200px] mx-auto`}
-                            >
-                                Book Now
-                            </Button>
                         </Grid>
+
+                        {/* Book Now Button */}
+                        <Button
+                            variant="contained"
+                            className={`!rounded-[40px] !bg-[#54ACAC] h-[50px] ${isExpanded ? '-top-64' : '-top-60'
+                                } !text-[16px] !text-[#482E21] !normal-case w-[200px]`}
+                        >
+                            Book Now
+                        </Button>
+                        {/* </Grid> */}
                     </>
                 }
-                <Box
-                    component="form"
-                    sx={{
-                        '& .MuiTextField-root': { m: 1 },//, marginTop: '-50px'
-                        textAlign: 'center',
-                        // zIndex: '100',
-                        // backgroundColor:'#ffffff'
-                    }}
-                    noValidate
-                    autoComplete='off'
-                >
 
+            </Grid>
+
+            <Box
+                component="form"
+                sx={{
+                    '& .MuiTextField-root': { m: 1 },//, marginTop: '-50px'
+                    textAlign: 'center',
+                    // zIndex: '100',
+                    // backgroundColor:'#ffffff'
+                }}
+                noValidate
+                autoComplete='off'
+            >
+                <Grid container>
                     <Grid item xs={12} textAlign='center'>
                         {/* <TextField
                                 id="outlined-basic"
@@ -267,10 +302,10 @@ function HomeExtention() {
                             /> */}
 
                     </Grid>
-                </Box>
-                {/* </div> */}
-            </Grid>
-        </div>
+                </Grid>
+            </Box>
+            {/* </div> */}
+        </div >
     )
 }
 
