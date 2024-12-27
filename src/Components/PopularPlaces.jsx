@@ -163,7 +163,7 @@ function PopularPlaces() {
           sx={{
             "&::-webkit-scrollbar": { display: "none" },
             width: "100%",
-            marginRight:'-30px'
+            marginRight: '-30px'
           }}
         >
           {districts.map((area, index) => (
@@ -183,12 +183,13 @@ function PopularPlaces() {
         </Box>
 
         <IconButton onClick={() => scrollHorizontally("left")}>
-          <ArrowBack className="absolute mt-20 bg-[#54ACAC] right-8 !w-8 !h-8 rounded-[40px] p-2" />
+          <ArrowBack className="absolute mt-20 border border-[rgba(0,0,0,0.4)] right-8 !w-8 !h-8 rounded-[40px] p-2 shadow-[0px_8px_20px_rgba(180,235,211,0.8)]" />
         </IconButton>
+
 
         {/* Next Scroll Button */}
         <IconButton onClick={() => scrollHorizontally("right")}>
-          <ArrowForward className="absolute mt-20 bg-[#54ACAC] right-2 !w-8 !h-8 rounded-[40px] p-2" />
+          <ArrowForward className="absolute mt-20 bg-[#54ACAC] right-2 !w-8 !h-8 rounded-[40px] p-2 shadow-[0px_8px_20px_rgba(180,235,211,0.8)]" />
         </IconButton>
       </Box>
     </Box>
